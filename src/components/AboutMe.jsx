@@ -65,7 +65,7 @@ export const AboutMe = () => {
                 className="image w-full max-w-[25rem] flex justify-center z-20 relative will-change-transform will-change-opacity"
               >
                 <img
-                  className="w-2/3 max-w-[20rem] z-20"
+                  className="w-1/30 max-w-[30rem] z-20"
                   src={character}
                   alt=""
                 />
@@ -165,8 +165,8 @@ export const AboutMe = () => {
                   {skillIcons.map((icon, index) => (
                     <motion.img
                       initial={{ rotate: 360, opacity: 0 }}
-                      whileInView={{ rotate: 0, opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
+                      whileInView={{ rotate: 0, opacity: 4 }}
+                      transition={{ duration: 1.2, delay: 0.2 }}
                       key={index}
                       className="size-10"
                       src={icon}

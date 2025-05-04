@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import {motion} from "motion/react";
+import { motion } from "motion/react";
+
 export const ProjectCard = ({
   projectImage,
   title,
@@ -10,13 +11,62 @@ export const ProjectCard = ({
   const openInsightsPanel = () => {
     setOpenInsights(true);
   };
+
   return (
     <>
       <motion.div
-      initial={{ opacity: 0,y:200 }}
-      whileInView={{ opacity: 1,y:0 }}
-      transition={{duration:0.6,ease: "easeOut"}}
-      className="project-card flex flex-col bg-white/5 w-[20rem] h-[20rem] rounded-md py-5 px-3 will-change-transform will-change-opacity">
+        initial={{ opacity: 0, y: 200 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="group relative flex flex-col bg-white/5 w-[20rem] h-[20rem] rounded-md py-5 px-3 overflow-hidden will-change-transform will-change-opacity"
+      >
+        {/* Glowing Edge Light Animation */}
+        <motion.div
+          className="absolute inset-0 z-20 pointer-events-none"
+          initial={false}
+        >
+          <motion.div
+            className="absolute top-0 left-0 w-full h-[2px] bg-color2 blur-md opacity-0 group-hover:opacity-100"
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+          <motion.div
+            className="absolute top-0 right-0 h-full w-[2px] bg-color2 blur-md opacity-0 group-hover:opacity-100"
+            animate={{ y: ["-100%", "100%"] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+              delay: 0.5,
+            }}
+          />
+          <motion.div
+            className="absolute bottom-0 right-0 w-full h-[2px] bg-color2 blur-md opacity-700 group-hover:opacity-200"
+            animate={{ x: ["100%", "-100%"] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+              delay: 1,
+            }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 h-full w-[2px] bg-color2 blur-md opacity-0 group-hover:opacity-100"
+            animate={{ y: ["100%", "-100%"] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+              delay: 1.5,
+            }}
+          />
+        </motion.div>
+
+        {/* Card Content */}
         <div className="project-image bg-white/5 w-full h-2/3 rounded-md flex flex-col justify-between">
           <div className="flex gap-1 py-1 pl-2 h-1/6">
             <div className="size-1 bg-red-500 rounded-full"></div>
@@ -31,6 +81,7 @@ export const ProjectCard = ({
             />
           </div>
         </div>
+
         <div className="project-text flex flex-col h-2/5 justify-center gap-y-1">
           <div className="main-title text-2xl text-white font-semibold">
             {title}
@@ -39,6 +90,7 @@ export const ProjectCard = ({
             {subTitle}
           </div>
         </div>
+
         <div className="buttons flex gap-2 w-full text-[12px]">
           <button
             onClick={() => openInsightsPanel()}
@@ -56,6 +108,7 @@ export const ProjectCard = ({
     </>
   );
 };
+
 ProjectCard.propTypes = {
   projectImage: PropTypes.string,
   title: PropTypes.string,
