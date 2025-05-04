@@ -192,7 +192,7 @@ export const HeroSect = () => {
   initial={{ opacity: 0, scale: 0.3 }}
   whileInView={{ opacity: 1, scale: 1 }}
   transition={{ duration: 1 }}
-  className="min-w-[16rem] max-sm:w-[20rem] absolute top-[5rem] right-[5rem] md:w-[20rem] will-change-transform will-change-opacity"
+  className="min-w-[20.5rem] max-sm:w-[20rem] absolute top-[0.5rem] right-[0.2rem] md:w-[20rem] will-change-transform will-change-opacity"
   src={heroIllustration}
   alt=""
 />
